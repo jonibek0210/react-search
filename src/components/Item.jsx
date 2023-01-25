@@ -1,10 +1,10 @@
 const Item = ({ item }) => {
    return (
-      <tr className="flex border border-black px-5 py-2 gap-5">
-         <td className="flex-1 truncate">{item.title}</td>
-         <td className="flex-1">{item.rating}</td>
-         <td className="flex-1 truncate">{item.category}</td>
-      </tr>
+      <li className="flex border border-black px-5 py-2 gap-5">
+         <p className="flex-1 truncate">{item.title}</p>
+         <p className="flex-1">{item.rating}</p>
+         <p className="flex-1 truncate">{item.category}</p>
+      </li>
    );
 }
 

@@ -37,6 +37,7 @@ const data = [
 
 function App() {
 	const [value, setValue] = useState('')
+	// const [chengeSelect, setChengeSelect] = useState('any rating')
 
 	const filtered = data.filter(item => {
 		return item.title.toLowerCase().includes(value.toLowerCase())
@@ -45,13 +46,13 @@ function App() {
 	return (
 		<div className="container m-auto mt-20 px-6">
 			<Thead setValue={setValue} />
-			<tbody className='flex flex-col gap-5 my-10'>
+			<ul className='flex flex-col gap-5 my-10'>
 				{
 					filtered.map(item => {
 						return <Item item={item} key={item.id} />
 					})
 				}
-			</tbody>
+			</ul>
 		</div>
 	);
 }
