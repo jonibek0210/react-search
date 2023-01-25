@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Item from './components/Item';
 import Thead from './components/Thead';
 
@@ -35,12 +36,20 @@ const data = [
 ]
 
 function App() {
+	const [value, setValue] = useState('')
+
+	const filtered = data.filter(item => {
+		return item.title.toLowerCase().includes(value.toLowerCase())
+	})
+
 	return (
 		<div className="container m-auto mt-20 px-6">
-			<Thead />
-			<tbody className='flex flex-col gap-5 mt-10'>
+			<Thead setValue={setValue} />
+			<tbody className='flex flex-col gap-5 my-10'>
 				{
-					data.map(item => <Item key={item.id} item={item} />)
+					filtered.map(item => {
+						return <Item item={item} key={item.id} />
+					})
 				}
 			</tbody>
 		</div>
